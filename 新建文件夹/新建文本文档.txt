@@ -1,24 +1,23 @@
-#include<iostream>
-#include<cmath>  
-using namespace std; 
-//16160200518 ŒÈ’Í¿⁄ 
-class point 
-{  
- private:
-    float x,y;
- public:
- point(float a,float b) { x=a; y=b; }
-   float Distance(point &p)
-	{ float dx=p.x-x;
-	   float dy=p.y-y;
-	   return (float)sqrt(dx*dx+dy*dy);
-	}
+#include < reg52.h > 
+#include <intrins.h>
 
-};
-
-int main() 
-{
-    point p1(2,3),p2(32,43);
-    cout<<p1.Distance(p2)<<endl;
-    return 0;
+sbit P00 = P0^0;
+void delay(unsigned int ms)
+{    
+    unsigned char  i;
+    while(ms--) for(i = 110; i-- ; i > 0);
 }
+
+void main()
+{
+    unsigned char  LED = 0xfe, COUN = 0;
+    while(1) {
+      P1 = LED;
+      P2 = COUN;
+      if (P00 == 1) {
+        delay(2);
+        if (P00 == 1) {
+          while (P00 == 1);
+          LED = _cror_(LED, 1);
+          COUN++;
+}   } } }
